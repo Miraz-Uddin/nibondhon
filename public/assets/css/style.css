@@ -1,0 +1,20 @@
+ul li {
+	list-style: none;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* .bg {
+	background: url(../img/background.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 60rem;
+	position: relative;
+} */
