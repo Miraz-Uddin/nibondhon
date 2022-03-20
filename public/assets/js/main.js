@@ -9,12 +9,51 @@
   const portfolio_field = document.querySelector("#portfolio_field");
 
 
+  name_field.addEventListener('input',function(e){
+    e.preventDefault();
+    popupMessage(this.id, false);
+  });
+  username_field.addEventListener('input',function(e){
+    e.preventDefault();
+    popupMessage(this.id, false);
+  });
+  email_field.addEventListener('input',function(e){
+    e.preventDefault();
+    popupMessage(this.id, false);
+  });
+  phone_field.addEventListener('input',function(e){
+    e.preventDefault();
+    popupMessage(this.id, false);
+  });
+  slug_field.addEventListener('input',function(e){
+    e.preventDefault();
+    popupMessage(this.id, false);
+  });
+  password_field.addEventListener('input',function(e){
+    e.preventDefault();
+    popupMessage(this.id, false);
+  });
+  portfolio_field.addEventListener('input',function(e){
+    e.preventDefault();
+    popupMessage(this.id, false);
+  });
 
   main_form.addEventListener("submit", function (e) {
     e.preventDefault();
     let valueList = Array.from(e.target.children);
     isEmpty(valueList);
   });
+
+  function popupMessage(fieldName, errorVal){
+      let isError = errorVal;
+      const bad = document.querySelector(`#${fieldName}_error`);
+      const good = document.querySelector(`#${fieldName}_success`);
+      if(isError){
+        if(Array.from(bad.classList).includes("d-none")) bad.classList.remove("d-none")
+      }else{
+        if(Array.from(good.classList).includes("d-none")) good.classList.remove("d-none")
+      }
+  }
 
   function isEmpty(valueList) {
     let onlyInputs = valueList.filter((obj) => {
