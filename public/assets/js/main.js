@@ -30,7 +30,7 @@
   });
   password_field.addEventListener("input", function (e) {
     e.preventDefault();
-    popupMessage(this.id, false);
+    popupMessage(this.id, passwordValidation(this.value));
   });
   portfolio_field.addEventListener("input", function (e) {
     e.preventDefault();
@@ -100,5 +100,9 @@
 
   function slugValidation(val) {
     return /^[a-z0-9\.\-]{3,}$/.test(val);
+  }
+  
+  function passwordValidation(val) {
+    return /(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[!@#%$&*]){1})/.test(val);
   }
 })();
