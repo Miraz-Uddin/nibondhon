@@ -18,7 +18,7 @@
   });
   email_field.addEventListener("input", function (e) {
     e.preventDefault();
-    popupMessage(this.id, false);
+    popupMessage(this.id, emailValidation(this.value));
   });
   phone_field.addEventListener("input", function (e) {
     e.preventDefault();
@@ -88,5 +88,9 @@
 
   function usernameValidation(val) {
     return /^[\S]{5}$/.test(val);
+  }
+
+  function emailValidation(val) {
+    return /^\w{2,}@\w{2,20}\.\w{2,5}$/.test(val);
   }
 })();
