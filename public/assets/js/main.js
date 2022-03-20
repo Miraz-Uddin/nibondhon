@@ -34,7 +34,7 @@
   });
   portfolio_field.addEventListener("input", function (e) {
     e.preventDefault();
-    popupMessage(this.id, false);
+    popupMessage(this.id, portfolioValidation(this.value));
   });
 
   main_form.addEventListener("submit", function (e) {
@@ -104,5 +104,9 @@
   
   function passwordValidation(val) {
     return /(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[!@#%$&*]){1})/.test(val);
+  }
+
+  function portfolioValidation(val) {
+    return /^https?:\/\/(www\.)?\w{3,}\.[a-z]{2,5}$/.test(val);
   }
 })();
