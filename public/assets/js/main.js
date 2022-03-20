@@ -26,7 +26,7 @@
   });
   slug_field.addEventListener("input", function (e) {
     e.preventDefault();
-    popupMessage(this.id, false);
+    popupMessage(this.id, slugValidation(this.value));
   });
   password_field.addEventListener("input", function (e) {
     e.preventDefault();
@@ -96,5 +96,9 @@
 
   function phoneValidation(val) {
     return /^\+?(88)?01(1|[3-9])\d{8}$/.test(val);
+  }
+
+  function slugValidation(val) {
+    return /^[a-z0-9\.\-]{3,}$/.test(val);
   }
 })();
