@@ -14,7 +14,7 @@
   });
   username_field.addEventListener("input", function (e) {
     e.preventDefault();
-    popupMessage(this.id, false);
+    popupMessage(this.id, usernameValidation(this.value));
   });
   email_field.addEventListener("input", function (e) {
     e.preventDefault();
@@ -84,5 +84,9 @@
 
   function nameValidation(val) {
     return /^[a-zA-Z]{5,}$/.test(val);
+  }
+
+  function usernameValidation(val) {
+    return /^[\S]{5}$/.test(val);
   }
 })();
