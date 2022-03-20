@@ -22,7 +22,7 @@
   });
   phone_field.addEventListener("input", function (e) {
     e.preventDefault();
-    popupMessage(this.id, false);
+    popupMessage(this.id, phoneValidation(this.value));
   });
   slug_field.addEventListener("input", function (e) {
     e.preventDefault();
@@ -92,5 +92,9 @@
 
   function emailValidation(val) {
     return /^\w{2,}@\w{2,20}\.\w{2,5}$/.test(val);
+  }
+
+  function phoneValidation(val) {
+    return /^\+?(88)?01(1|[3-9])\d{8}$/.test(val);
   }
 })();
