@@ -8,32 +8,31 @@
   const password_field = document.querySelector("#password_field");
   const portfolio_field = document.querySelector("#portfolio_field");
 
-
-  name_field.addEventListener('input',function(e){
+  name_field.addEventListener("input", function (e) {
+    e.preventDefault();
+    popupMessage(this.id, nameValidation(this.value));
+  });
+  username_field.addEventListener("input", function (e) {
     e.preventDefault();
     popupMessage(this.id, false);
   });
-  username_field.addEventListener('input',function(e){
+  email_field.addEventListener("input", function (e) {
     e.preventDefault();
     popupMessage(this.id, false);
   });
-  email_field.addEventListener('input',function(e){
+  phone_field.addEventListener("input", function (e) {
     e.preventDefault();
     popupMessage(this.id, false);
   });
-  phone_field.addEventListener('input',function(e){
+  slug_field.addEventListener("input", function (e) {
     e.preventDefault();
     popupMessage(this.id, false);
   });
-  slug_field.addEventListener('input',function(e){
+  password_field.addEventListener("input", function (e) {
     e.preventDefault();
     popupMessage(this.id, false);
   });
-  password_field.addEventListener('input',function(e){
-    e.preventDefault();
-    popupMessage(this.id, false);
-  });
-  portfolio_field.addEventListener('input',function(e){
+  portfolio_field.addEventListener("input", function (e) {
     e.preventDefault();
     popupMessage(this.id, false);
   });
@@ -44,15 +43,19 @@
     isEmpty(valueList);
   });
 
-  function popupMessage(fieldName, errorVal){
-      let isError = errorVal;
-      const bad = document.querySelector(`#${fieldName}_error`);
-      const good = document.querySelector(`#${fieldName}_success`);
-      if(isError){
-        if(Array.from(bad.classList).includes("d-none")) bad.classList.remove("d-none")
-      }else{
-        if(Array.from(good.classList).includes("d-none")) good.classList.remove("d-none")
-      }
+  function popupMessage(fieldName, bool) {
+    let isTrue = bool;
+    const bad = document.querySelector(`#${fieldName}_error`);
+    const good = document.querySelector(`#${fieldName}_success`);
+    if (!isTrue) {
+      if (Array.from(bad.classList).includes("d-none"))
+        bad.classList.remove("d-none");
+      good.classList.add("d-none");
+    } else {
+      if (Array.from(good.classList).includes("d-none"))
+        good.classList.remove("d-none");
+      bad.classList.add("d-none");
+    }
   }
 
   function isEmpty(valueList) {
@@ -77,5 +80,9 @@
     }
     if (booleanVal)
       valueList[problemIndex].children[1].classList.add("has-bug");
+  }
+
+  function nameValidation(val) {
+    return /^[a-zA-Z]{5,}$/.test(val);
   }
 })();
